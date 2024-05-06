@@ -4,14 +4,11 @@ from flask import Flask, render_template, request, redirect, url_for, session
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# Mock data for users (username: [password, email])
 users = {
     'user1': ['password1', 'user1@example.com'],
     'user2': ['password2', 'user2@example.com'],
-    # Add more users as needed
 }
 
-# Routes
 @app.route('/')
 def index():
     return render_template('index.html')
