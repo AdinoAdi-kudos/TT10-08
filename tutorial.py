@@ -37,7 +37,7 @@ def login():
         else:
             return render_template('login.html', message='Invalid username or password. Please try again.')
     return render_template('login.html')
-
+# The main foundation for the quiz
 @app.route('/quiz')
 def quiz():
     if 'username' not in session:
