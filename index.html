@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div>
         {% block content %}
-        <h1> Home Page</h1>
+        <h1>Home Page</h1>
         <p>Hello, {{ name }}, you are now visiting our website faculty hat quiz.</p>
         {% endblock %}
     </div>
+    <form action="/redirect" method="post">
+        <button type="submit">Register</button>
+    </form>
 </body>
 <script 
     type="text/javascript" 
-    src="{{ url_for('static', filename='index.js')}}"
+    src="{{ url_for('static', filename='index.js') }}"
 ></script>
 </html>

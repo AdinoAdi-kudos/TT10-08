@@ -1,8 +1,16 @@
-python
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db = SQLAlchemy(app)
 app.secret_key = 'your_secret_key'
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
 
 users = {
     'user1': ['password1', 'user1@example.com'],
@@ -23,7 +31,7 @@ def register():
             users[username] = [password, email]
             return redirect(url_for('login'))
         else:
-            return render_template('register.html', message='Username already exists. Please choose another username.')
+            return render_template('register.html',render_template('style.css'), message='Username already exists. Please choose another username.')
     return render_template('register.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -80,6 +88,14 @@ def delete_password():
         else:
             return render_template('delete_password.html', message='Incorrect password. Please try again.')
     return render_template('delete_password.html')
+
+@app.route('/redirect', methods=['POST'])
+def handle_redirect():
+    return redirect('/Registrations')
+
+@app.route('/Registrations')
+def registrations():
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
