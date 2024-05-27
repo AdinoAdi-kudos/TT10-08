@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Initialize the answer counts
-answer_counts = {'A': 0, 'B': 0, 'C': 0}
+answer_counts = {'FOM': 0, 'FCM': 0, 'FAC': 0, 'FCA': 0, 'FCI': 0, 'FOE': 0}
 
 @app.route('/', methods=['GET', 'POST'])
 def quiz1():
