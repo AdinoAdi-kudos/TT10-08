@@ -25,12 +25,26 @@ def quiz3():
     if request.method == 'POST':
         selected_answer = request.form['answer']
         answer_counts[selected_answer] += 1
-        return redirect(url_for('results'))
+        return redirect(url_for('quiz4'))
     return render_template('quiz3.html')
+
+@app.route('/quiz4', methods=['GET', 'POST'])
+def quiz4():
+    if request.method == 'POST':
+        selected_answer = request.form['answer']
+        answer_counts[selected_answer] += 1
+        return redirect(url_for('results'))
+    return render_template('quiz4.html')
 
 @app.route('/results')
 def results():
-    return render_template('results.html', answer_counts=answer_counts)
+    return render_template('results.html', answer_counts=answer_counts, reset_url=url_for('reset'))
+
+@app.route('/reset')
+def reset():
+    global answer_counts
+    answer_counts = {'FOM': 0, 'FCM': 0, 'FAC': 0, 'FCA': 0, 'FCI': 0, 'FOE': 0}
+    return redirect(url_for('quiz1'))
 
 if __name__ == '__main__':
     app.run()
