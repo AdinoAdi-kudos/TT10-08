@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz 1</title>
+  </head>
+  <body>
+    <h1>Quiz 1</h1>
+    <form id="quiz-form" method="post">
+      <ul>
+        <li>
+          <input type="radio" name="answer" value="A" />
+          <label>Option A</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" value="B" />
+          <label>Option B</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" value="C" />
+          <label>Option C</label>
+        </li>
+      </ul>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="result">{{ result }}</div>
+  </body>
+</html>

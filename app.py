@@ -1,8 +1,37 @@
-from flask import Flask
-from views import views
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-app.register_blueprint(views, url_prefix="/views")
 
-if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+# Initialize the answer counts
+answer_counts = {'A': 0, 'B': 0, 'C': 0}
+
+@app.route('/', methods=['GET', 'POST'])
+def quiz1():
+    if request.method == 'POST':
+        selected_answer = request.form['answer']
+        answer_counts[selected_answer] += 1
+        return redirect(url_for('quiz2'))
+    return render_template('quiz1.html')
+
+@app.route('/quiz2', methods=['GET', 'POST'])
+def quiz2():
+    if request.method == 'POST':
+        selected_answer = request.form['answer']
+        answer_counts[selected_answer] += 1
+        return redirect(url_for('quiz3'))
+    return render_template('quiz2.html')
+
+@app.route('/quiz3', methods=['GET', 'POST'])
+def quiz3():
+    if request.method == 'POST':
+        selected_answer = request.form['answer']
+        answer_counts[selected_answer] += 1
+        return redirect(url_for('results'))
+    return render_template('quiz3.html')
+
+@app.route('/results')
+def results():
+    return render_template('results.html', answer_counts=answer_counts)
+
+if __name__ == '__main__':
+    app.run()
