@@ -1,0 +1,23 @@
+<h1>Results</h1>
+<p>Here are the results of your quiz:</p>
+<ul>
+  <li>FOM: {{ answer_counts['FOM'] }}</li>
+  <li>FCM: {{ answer_counts['FCM'] }}</li>
+  <li>FAC: {{ answer_counts['FAC'] }}</li>
+  <li>FCA: {{ answer_counts['FCA'] }}</li>
+  <li>FCI: {{ answer_counts['FCI'] }}</li>
+  <li>FOE: {{ answer_counts['FOE'] }}</li>
+</ul>
+
+<!--<form action="/quiz1" method="GET">
+  <button
+    type="submit"
+    class="btn btn-primary btn-lg"
+  >
+    Retake Quiz
+  </button>
+</form>-->
+
+<form action="{{ url_for('app_quiz.quiz1') }}" method="GET">
+  <button type="submit" class="btn btn-primary btn-lg">Retake Quiz</button>
+</form>
