@@ -59,6 +59,22 @@ def login():
 
 @app.route('/logout')
 def logout():
+    if request.method == 'POST':
+        username = session['username']
+        password = request.form['password']
+    with open('users.txt', 'r') as f:
+        lines = f.readlines()
+    with open('users.txt', 'w') as f:
+        for line in lines:
+            username_check, password_check, email = line.strip().split(', ')
+            username_check = username_check.split(': ')[1]
+            password_check = password_check.split(': ')[1]
+            if username_check!= username or password_check!= password:
+                f.write(line)
+                 return redirect(url_for('logout'))
+             return render_template('delete_account.html')
+@app.route('/logout')
+def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
 
@@ -78,6 +94,23 @@ def change_password():
             return render_template('change_password.html', message='Incorrect old password. Please try again.')
     return render_template('change_password.html')
 
+if request.method == 'POST':
+    username = session['username']
+    old_password = request.form['old_password']
+    new_password = request.form['new_password']
+    with open('users.txt', 'r') as f:
+        lines = f.readlines()
+    with open('users.txt', 'w') as f:
+        for line in lines:
+            username_check, password, email = line.strip().split(', ')
+            username_check = username_check.split(': ')[1]
+            password = password.split(': ')[1]
+            if username_check == username and password == old_password:
+                f.write(f"Username: {username}, Password: {new_password}, Email: {email}\n")
+            else:
+                f.write(line)
+             return redirect(url_for('logout'))
+         return render_template('change_password.html')
 @app.route('/delete_password', methods=['GET', 'POST'])
 def delete_password():
     if 'username' not in session:
