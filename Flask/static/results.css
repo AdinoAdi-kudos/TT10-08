@@ -1,38 +1,65 @@
 .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .result-image {
-    width: 30%; /* adjust the width to your liking */
-    margin: 10px; /* add some margin between images */
-    border: 1px solid #ccc; /* add a border */
-    border-radius: 10px; /* add a rounded corner */
-    object-fit: cover; /* crop the image to fit the container */
-    height: 150px; /* set a fixed height for the images */
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .result-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #212121;
-    border: 1px solid #fff; /* add a border */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.result-image {
+  width: 30%; /* adjust the width to your liking */
+  margin: 10px; /* add some margin between images */
+  border: 1px solid #ccc; /* add a border */
+  border-radius: 10px; /* add a rounded corner */
+  object-fit: cover; /* crop the image to fit the container */
+  height: 150px; /* set a fixed height for the images */
+}
+
+.result-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #212121;
+  border: 1px solid #fff; /* add a border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .result {
-    margin-bottom: 20px;
-    border: 1px solid #fff; /* add a border */
-    border-radius: 5px;
-    padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #fff; /* add a border */
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .traits {
-    margin-top: 20px;
-    border: 1px solid #fff; /* add a border */
-    border-radius: 5px;
-    padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #fff; /* add a border */
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.history {
+  margin-top: 40px;
+  border: 5px solid #fff; /* add a thick border */
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.similar-users {
+  margin-top: 20px;
+}
+
+.similar-users table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.similar-users th,.similar-users td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+.similar-users th {
+  background-color: #212121;
+  color: #fff;
 }

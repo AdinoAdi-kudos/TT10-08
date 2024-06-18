@@ -11,3 +11,5 @@ class User(db.Model):
 class Result(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     result = db.Column(db.String(3), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.relationship('User', backref=db.backref('results', lazy=True))
