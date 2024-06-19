@@ -6,3 +6,7 @@ Username: Irfan, Password: Irfan, Email: Irfan@gmail.com
 Username: werwds234234, Password: 123123, Email: 1231100370@student.mmu.edu.my
 Username: Abc, Password: 123, Email: 1231100370@student.mmu.edu.my
 Username: Kao, Password: 123, Email: abc@gmail.com
+Username: Amirul, Password: 123, Email: abc@gmail.com
+Username: Akmol, Password: 123, Email: abc@gmail.com
+Username: Hanan, Password: 123, Email: abc@gmail.com
+Username: Adi, Password: 123, Email: abc@gmail.com

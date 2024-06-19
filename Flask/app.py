@@ -102,6 +102,11 @@ def quiz4():
                             answer_counts[answer] += 1
                             with open('results.txt', 'a') as f:
                                 f.write(f"{answer}: {answer_counts[answer]}\n")
+            username = session['username']
+            max_answer = max(answer_counts, key=answer_counts.get)
+            result_description = result_descriptions[max_answer]
+            with open('user_results.txt', 'a') as f:
+                f.write(f"{username}, {result_description['description']}\n")
             return redirect(url_for('app_quiz.results'))
     return render_template('quiz4.html', questions=questions)
 
@@ -116,32 +121,41 @@ def results():
 
     username = session['username']
 
-    with open('user_results.txt', 'a') as f:
-        f.write(f"{username}, {result_description['description']}\n")
-
     logged_in_users = read_logged_in_users()
     user_results = [res for res in logged_in_users.get(username, {}).get('results', [])]
 
-    different_results = [res[0] for res in user_results if res[0] != result_description]
+    different_results = [res[0] for res in user_results if res[0]!= result_description]
 
-    similar_users = [user for user, res in logged_in_users.items() if result_description['description'] in [r[0] for r in res.get('results', [])] and user!= username]
-
-    similar_user_count = len([user for user, res in logged_in_users.items() if any(r == result_description['description'] for r in res.get('results', []))])
-    total_users = len(logged_in_users)
+    similar_user_count = 0
+    with open('user_results.txt', 'r') as f:
+        for line in f:
+            parts = line.strip().split(', ')
+            user_result = parts[1:]
+            if result_description in user_result:
+                similar_user_count += 1
+    total_users = sum(1 for line in open('user_results.txt'))
     if total_users == 0:
         pick_rate = 0
     else:
         pick_rate = (similar_user_count / total_users) * 100
 
+    similar_result_users = []
+    with open('user_results.txt', 'r') as f:
+        for line in f:
+            parts = line.strip().split(', ')
+            user_result = parts[1:]
+            if result_description['description'] in user_result:
+                similar_result_users.append(parts[0])
+
     return render_template('results.html', 
                         result_description=result_description, 
                         result_count=result_count, 
                         username=username, 
-                        similar_users=similar_users,     
                         different_results=different_results, 
                         pick_rate=pick_rate,
                         user_results=user_results,
-                        logged_in_users=logged_in_users)
+                        logged_in_users=logged_in_users,
+                        similar_result_users=similar_result_users)
 
 if __name__ == '__main__':
     app = Blueprint(__name__)
