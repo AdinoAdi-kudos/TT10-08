@@ -2,21 +2,62 @@
 <html>
   <head>
     <title>Quiz 4</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='quiz.css') }}">
+    <style>
+      /* Add the CSS code from results.css here */
+    </style>
   </head>
   <body>
-    {% for question in questions %}
-    <h3>{{ question.question }}</h3>
-    <form id="quiz-form" method="post">
-      <ul>
-        {% for option, data in question.options.items() %}
-        <li>
-          <input type="radio" name="answer" value="{{ option }}" />
-          <label>{{ data.text }}</label>
-        </li>
-        {% endfor %}
-      </ul>
-      <button type="submit">Submit</button>
-    </form>
-    {% endfor %}
+    <div class="container">
+      {% for question in questions %}
+      <div class="question-container">
+        <img alt="{{ question.question }}" />
+        <form id="quiz-form" method="post">
+          <ul class="answer-container">
+            {% for option, data in question.options.items() %}
+            <li>
+              <input type="radio" name="answer" value="{{ option }}" />
+              <label class="answer-label">
+                <img class="answer-image" src="{{ data.image }}" alt="{{ data.text }}" />
+                {{ data.text }}
+              </label>
+            </li>
+            {% endfor %}
+          </ul>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const answerContainers = document.querySelectorAll('.answer-container');
+
+        answerContainers.forEach(function(answerContainer) {
+          const answerLabels = answerContainer.querySelectorAll('.answer-label');
+          const answerInputs = answerContainer.querySelectorAll('input');
+
+          answerLabels.forEach(function(answerLabel, index) {
+            answerLabel.addEventListener('click', function() {
+              answerInputs[index].checked = true;
+              const selectedAnswer = answerContainer.querySelector('input:checked');
+              if (selectedAnswer) {
+                selectedAnswer.parentElement.classList.add('selected');
+              }
+            });
+          });
+
+          answerContainer.addEventListener('click', function(event) {
+            if (event.target.matches('img')) {
+              const selectedAnswer = answerContainer.querySelector('input:checked');
+              if (selectedAnswer) {
+                selectedAnswer.parentElement.submit();
+              }
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

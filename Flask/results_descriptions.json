@@ -1,0 +1,26 @@
+{
+    "FOM": {
+      "description": "You are a FOM! This means you are a free-spirited individual who loves to explore new things.",
+      "traits": ["Adventurous", "Spontaneous", "Open-minded"]
+    },
+    "FOE": {
+      "description": "You are a FOE! This means you are a detail-oriented person who values precision and accuracy.",
+      "traits": ["Analytical", "Meticulous", "Perfectionist"]
+    },
+    "FCI": {
+      "description": "You are a FCI! This means you are a creative and imaginative person who loves to express themselves.",
+      "traits": ["Artistic", "Innovative", "Expressive"]
+    },
+    "FCM": {
+      "description": "You are a FCM! This means you are a charismatic leader who inspires others.",
+      "traits": ["Confident", "Outgoing", "Inspirational"]
+    },
+    "FAC": {
+      "description": "You are a FAC! This means you are a curious and inquisitive person who loves to learn.",
+      "traits": ["Curious", "Inquisitive", "Lifelong learner"]
+    },
+    "FCA": {
+      "description": "You are a FCA! This means you are a logical and analytical person who values reason and evidence.",
+      "traits": ["Logical", "Analytical", "Objective"]
+    }
+  }

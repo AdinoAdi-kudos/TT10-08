@@ -5,19 +5,31 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    <h1>Login</h1>
-    {% if message %}
-      <p>{{ message }}</p>
-    {% endif %}
-    <form method="POST" action="{{ url_for('login') }}">
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <form method="POST" action="{{ url_for('login') }}">
+        <h1>Login</h1>
+        {% if message %}
+          <p>{{ message }}</p>
+        {% endif %}
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br>
         <input type="submit" value="Login">
-    </form>
-<br>
-<form action='/' method="GET">
-    <button type="submit">Home</button>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <form action="/register" method="GET">
+            <button type="submit">Register</button>
+          </form>
+          <form action="/" method="GET">
+            <button type="submit">Home</button>
+          </form>
+        </div>
+      </form>
+    </div>
   </body>
+
+<script 
+    type="text/javascript" 
+    src="{{ url_for('static', filename='index.js') }}"
+></script>
 </html>
