@@ -1,0 +1,10 @@
+Question 1: What is your favourite movie?
+FOM, FOE: The Big Short (2015), /static/images/TheBigShort.jpg
+FCM: Blade Runner 2049 (2017), /static/images/BladeRunner2049.jpg
+FAC: Steve Jobs (2015), /static/images/SteveJobs.jpg
+FCA: Dune: Part Two (2024), /static/images/DunePart2.jpg
+FCI: The Social Network (2010), /static/images/SocialNetwork.jpg
+FOE: Iron Man (2008), /static/images/IronMan.jpg
+
+
+    
