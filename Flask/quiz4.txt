@@ -1,7 +1,9 @@
 Question 4: Famous Person
-FOM, FOE: Steve Jobs
-FCM: Steven Spielberg
-FAC: Martin Luther King
-FCA: Leonardo da Vinci
-FCI: Mark Zuckerberg
-FOE: Nikola Tesla
+FOM, FOE: Steve Jobs, /static/images/Stevejob.jpg
+FCM: Steven Spielberg, /static/images/StevenSpielberg.jpg
+FAC: Martin Luther King, /static/images/MartinLutherKingJr.jpg
+FCA: Leonardo da Vinci, /static/images/LeonardoDaVinci.jpg
+FCI: Mark Zuckerberg, /static/images/MarkZuckerberg.jpg
+FOE: Nikola Tesla, /static/images/NikolaTesla.jpg
+
+     

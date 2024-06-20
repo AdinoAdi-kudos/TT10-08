@@ -105,9 +105,9 @@
       <h2>Results</h2>
       <p>Username: {{ username }} </p>
       <p>{{ result_description['description'] }}</p>
-      <p>You are one of {{ result_count }} users who got this result.</p>
+      <p>You are one of {{ similar_result_count }} users who got this result.</p>
       <p>Pick rate: {{ "%.2f" | format(pick_rate) }}%</p>
-  
+    
       <div class="traits">
           <h2>Traits</h2>
           <ul>
@@ -126,18 +126,18 @@
         </ul>
       </div>
       
-      <div class="similar-users">
+      <div class="similar-result-users">
         <h2>Users who got the same result:</h2>
-        {% if similar_users %}
-          <ul class="similar-users-list">
-            {% for user in similar_users %}
+        {% if similar_result_users %}
+          <ul class="similar-result-users-list">
+            {% for user in similar_result_users %}
               <li>{{ user }}</li>
             {% endfor %}
           </ul>
         {% else %}
           <p>No other users got the same result as you.</p>
         {% endif %}
-      </div>
+    </div>
   
       <form action="{{ url_for('app_quiz.quiz1') }}" method="get">
         <input type="submit" class="redo-button" value="Redo Quiz">

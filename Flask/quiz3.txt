@@ -1,7 +1,9 @@
 Question 3: What is your favourite sport?
-FOM, FOE: Football
-FCM: Basketball
-FAC: Tennis
-FCA: Baseball
-FCI: Hockey
-FOE: Golf
+FOM, FOE: Football, /static/images/Football.jpg
+FCM: Basketball, /static/images/BasketBall.jpg
+FAC: Tennis, /static/images/Tennis.jpg
+FCA: Baseball, /static/images/BaseBall.jpg
+FCI: Hockey, /static/images/Hockey.jpg
+FOE: Golf, /static/images/Golf.jpg
+
+     

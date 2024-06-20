@@ -3,11 +3,21 @@ Irfan, You are a FCA! This means you are a free-spirited individual who loves to
 Kao, You are a FCM! This means you are a charismatic leader who inspires others.
 Kao, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
 Kao, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
-Kao, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
-irfan, You are a FCI! This means you are a creative and imaginative person who loves to express themselves.
-irfan, You are a FCI! This means you are a creative and imaginative person who loves to express themselves.
-irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
-irfan, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
-irfan, You are a FCI! This means you are a creative and imaginative person who loves to express themselves.
-irfan, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+Amirul, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+Amirul, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+Akmol, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+Hanan, You are a FCM! This means you are a charismatic leader who inspires others.
+Hanan, You are a FCM! This means you are a charismatic leader who inspires others.
+Adi, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+Adi, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+Irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+Irfan, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+Irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+Imo, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+Imo, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+Imo, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+Afiq, You are a FAC! This means you are a curious and inquisitive person who loves to learn.
+Afiq, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+irfan, You are a FCM! This means you are a charismatic leader who inspires others.
+irfan, You are a FAC! This means you are a curious and inquisitive person who loves to learn.
 irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.

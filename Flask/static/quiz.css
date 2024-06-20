@@ -1,10 +1,10 @@
 body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: #1a1a1a;
-  color: #fff;
-  text-align: center; /* Center the content */
-}
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center; /* Center the content */
+  }
 
  .container {
     max-width: 800px;
@@ -26,12 +26,12 @@ body {
     width: 80%;
   }
 
-  .answer-label {
+ .answer-label {
     display: inline-block;
     width: 200px;
     height: 200px;
     margin: 10px;
-    background-color: blue;
+    background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -41,13 +41,20 @@ body {
     position: relative;
   }
 
-  .answer-image {
+ .answer-image {
     max-width: 100%;
     max-height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+ .answer-text {
+    background-color: #1a1a1a;
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
   }
 
  .selected {

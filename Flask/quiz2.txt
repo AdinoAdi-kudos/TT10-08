@@ -1,7 +1,9 @@
 Question 2: What is your favourite music genre?
-FOM, FOE: Rock
-FCM: Pop
-FAC: Hip-Hop
-FCA: Electronic
-FCI: Classical
-FOE: Jazz
+FOM, FOE: Rock, /static/images/Rock.jpg
+FCM: Pop, /static/images/Pop.jpg
+FAC: Hip-Hop, /static/images/HipHop.jpg
+FCA: Electronic, /static/images/Electronic.jpg
+FCI: Classical, /static/images/Classical.jpg
+FOE: Jazz, /static/images/Jazz.jpg
+
+     

@@ -3,21 +3,19 @@
   <head>
     <title>Quiz 1</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='quiz.css') }}">
-    <style>
-      /* Add the CSS code from results.css here */
-    </style>
   </head>
   <body>
     <div class="container">
       {% for question in questions %}
       <div class="question-container">
-        <img alt="{{ question.question }}" />
+        <h2>{{ question.question }}</h2>
         <form id="quiz-form" method="post">
           <ul class="answer-container">
             {% for option, data in question.options.items() %}
             <li>
-              <input type="radio" name="answer" value="{{ option }}" />
-              <label class="answer-label">
+              <input type="radio" name="answer" value="{{ option }}" id="{{ option }}" />
+              <label class="answer-label" for="{{ option }}">
+
                 <img class="answer-image" src="{{ data.image }}" alt="{{ data.text }}" />
                 {{ data.text }}
               </label>

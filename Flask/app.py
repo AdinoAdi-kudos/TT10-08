@@ -1,8 +1,6 @@
-from flask import Flask, Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, request, redirect, url_for, session
 import json
-from models import db, User, Result
-
-app = Flask(__name__, static_folder='static', static_url_path='/static')
+from models import db
 
 app_quiz = Blueprint('app_quiz', __name__)
 
@@ -28,11 +26,12 @@ def read_questions(filename):
                 current_question = {'question': line, 'options': {}}
                 questions.append(current_question)
             else:
-                option, _, text = line.partition(': ')
+                option, _, rest = line.partition(': ')
+                text, _, image = rest.partition(', ')
                 answers = [a.strip() for a in option.split(',')]
-                image_path = f"static/images/{option.strip()}.png" 
-                current_question['options'][option] = {'text': text.strip(), 'answers': answers, 'image': image_path}
+                current_question['options'][option] = {'text': text.strip(), 'answers': answers, 'image': image.strip()}
     return questions
+
 
 def read_logged_in_users():
     logged_in_users = {}
@@ -105,6 +104,11 @@ def quiz4():
                             answer_counts[answer] += 1
                             with open('results.txt', 'a') as f:
                                 f.write(f"{answer}: {answer_counts[answer]}\n")
+            username = session['username']
+            max_answer = max(answer_counts, key=answer_counts.get)
+            result_description = result_descriptions[max_answer]
+            with open('user_results.txt', 'a') as f:
+                f.write(f"{username}, {result_description['description']}\n")
             return redirect(url_for('app_quiz.results'))
     return render_template('quiz4.html', questions=questions)
 
@@ -119,32 +123,44 @@ def results():
 
     username = session['username']
 
-    with open('user_results.txt', 'a') as f:
-        f.write(f"{username}, {result_description['description']}\n")
-
     logged_in_users = read_logged_in_users()
     user_results = [res for res in logged_in_users.get(username, {}).get('results', [])]
 
-    different_results = [res[0] for res in user_results if res[0] != result_description]
+    different_results = [res[0] for res in user_results if res[0]!= result_description]
 
-    similar_users = [user for user, res in logged_in_users.items() if result_description['description'] in [r[0] for r in res.get('results', [])] and user!= username]
-
-    similar_user_count = len([user for user, res in logged_in_users.items() if any(r == result_description['description'] for r in res.get('results', []))])
-    total_users = len(logged_in_users)
+    similar_result_count = 0
+    with open('user_results.txt', 'r') as f:
+        for line in f:
+            parts = line.strip().split(', ')
+            user_result = parts[1:]
+            if result_description['description'] in user_result:
+                similar_result_count += 1
+                
+    total_users = sum(1 for line in open('user_results.txt'))
     if total_users == 0:
         pick_rate = 0
     else:
-        pick_rate = (similar_user_count / total_users) * 100
+        pick_rate = (similar_result_count / total_users) * 100
+
+    similar_result_users = []
+    with open('user_results.txt', 'r') as f:
+        for line in f:
+            parts = line.strip().split(', ')
+            user_result = parts[1:]
+            if result_description['description'] in user_result:
+                similar_result_users.append(parts[0])
+                print("Similar result count:", similar_result_count)
 
     return render_template('results.html', 
                         result_description=result_description, 
+                        similar_result_count=similar_result_count,
                         result_count=result_count, 
                         username=username, 
-                        similar_users=similar_users,     
                         different_results=different_results, 
                         pick_rate=pick_rate,
                         user_results=user_results,
-                        logged_in_users=logged_in_users)
+                        logged_in_users=logged_in_users,
+                        similar_result_users=similar_result_users)
 
 if __name__ == '__main__':
     app = Blueprint(__name__)

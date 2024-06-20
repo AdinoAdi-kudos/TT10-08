@@ -23,19 +23,7 @@ def q1():
             scores['FAC'] += 1
             scores['FCM'] += 1
         return redirect(url_for('quiz.q2'))
-    
-    with open('quiz1.txt', 'r') as f:
-        lines = f.readlines()
-        question = lines[0].strip()
-        options = {}
-        for line in lines[1:]:
-            option_data = line.strip().split(': ')
-            option_keys = option_data[0].split(', ')
-            option_text = option_data[1]
-            for option_key in option_keys:
-                options[option_key] = {'text': option_text}
-                
-    return render_template('q1.html', question=question, options=options)
+    return render_template('q1.html')
 
 @quiz_blueprint.route('/q2')
 def q2():
