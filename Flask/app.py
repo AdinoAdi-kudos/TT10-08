@@ -126,18 +126,19 @@ def results():
 
     different_results = [res[0] for res in user_results if res[0]!= result_description]
 
-    similar_user_count = 0
+    similar_result_count = 0
     with open('user_results.txt', 'r') as f:
         for line in f:
             parts = line.strip().split(', ')
             user_result = parts[1:]
-            if result_description in user_result:
-                similar_user_count += 1
+            if result_description['description'] in user_result:
+                similar_result_count += 1
+                
     total_users = sum(1 for line in open('user_results.txt'))
     if total_users == 0:
         pick_rate = 0
     else:
-        pick_rate = (similar_user_count / total_users) * 100
+        pick_rate = (similar_result_count / total_users) * 100
 
     similar_result_users = []
     with open('user_results.txt', 'r') as f:
@@ -146,9 +147,11 @@ def results():
             user_result = parts[1:]
             if result_description['description'] in user_result:
                 similar_result_users.append(parts[0])
+                print("Similar result count:", similar_result_count)
 
     return render_template('results.html', 
                         result_description=result_description, 
+                        similar_result_count=similar_result_count,
                         result_count=result_count, 
                         username=username, 
                         different_results=different_results, 
