@@ -1,18 +1,21 @@
-Irfan, You are a FOE! This means you are a free-spirited individual who loves to explore new things.
-Irfan, You are a FCA! This means you are a free-spirited individual who loves to explore new things.
-Kao, You are a FCM! This means you are a charismatic leader who inspires others.
-Kao, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
-Kao, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
-Amirul, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
-Amirul, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
-Akmol, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
-Hanan, You are a FCM! This means you are a free rider.
-Hanan, You are a FCM! This means you are a charismatic leader who inspires others.
-Adi, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
-Adi, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
-Irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
-Irfan, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
-Irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
-Imo, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
-Imo, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
-Imo, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:00:00, Irfan, You are a FOE! This means you are a free-spirited individual who loves to explore new things.
+2024-06-01 12:00:05, Irfan, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:00:10, Kao, You are a FCM! This means you are a charismatic leader who inspires others.
+2024-06-01 12:00:15, Kao, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:00:20, Kao, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+2024-06-01 12:00:25, Amirul, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:00:30, Amirul, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+2024-06-01 12:00:35, Akmol, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+2024-06-01 12:00:40, Hanan, You are a FCM! This means you are a free rider.
+2024-06-01 12:00:45, Hanan, You are a FCM! This means you are a charismatic leader who inspires others.
+2024-06-01 12:00:50, Adi, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:00:55, Adi, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+2024-06-01 12:01:00, Irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+2024-06-01 12:01:05, Irfan, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:01:10, Irfan, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+2024-06-01 12:01:15, Imo, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+2024-06-01 12:01:20, Imo, You are a FOM! This means you are a free-spirited individual who loves to explore new things.
+2024-06-01 12:01:25, Imo, You are a FCA! This means you are a logical and analytical person who values reason and evidence.
+2024-06-01 12:01:30, Afiq, You are a FAC! This means you are a curious and inquisitive person who loves to learn.
+2024-06-01 12:01:35, Afiq, You are a FOE! This means you are a detail-oriented person who values precision and accuracy.
+2024-06-01 12:01:40, Irfan, You are a FCA! This means you are a logical and analytical person who values reason and evidence.

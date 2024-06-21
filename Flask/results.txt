@@ -43,3 +43,8 @@ FOE: 4
 FOE: 8
 FOE: 1
 FCA: 4
+FAC: 2
+FOE: 4
+FCA: 4
+FOM: 4
+FOE: 4

@@ -120,11 +120,11 @@
       <div class="history">
         <h2>History</h2>
         <ul class="history-list">
-          {% for result in user_results %}
-            <li>{{ result }}</li>
-          {% endfor %}
+            {% for result in user_results %}
+                <li>{{ result[0] }}</li>
+            {% endfor %}
         </ul>
-      </div>
+    </div>
       
       <div class="similar-result-users">
         <h2>Users who got the same result:</h2>

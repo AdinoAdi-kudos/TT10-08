@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
 import json
-from models import db, User, Result
+from models import db
 
 app_quiz = Blueprint('app_quiz', __name__)
 
@@ -26,23 +26,26 @@ def read_questions(filename):
                 current_question = {'question': line, 'options': {}}
                 questions.append(current_question)
             else:
-                option, _, text = line.partition(': ')
+                option, _, rest = line.partition(': ')
+                text, _, image = rest.partition(', ')
                 answers = [a.strip() for a in option.split(',')]
-                current_question['options'][option] = {'text': text.strip(), 'answers': answers}
+                current_question['options'][option] = {'text': text.strip(), 'answers': answers, 'image': image.strip()}
     return questions
+
 
 def read_logged_in_users():
     logged_in_users = {}
     with open('user_results.txt', 'r') as file:
         for line in file:
             parts = line.strip().split(', ')
-            username = parts[0]
-            result_description = ', '.join(parts[1:])
+            timestamp = parts[0]
+            username = parts[1]
+            result_description = ', '.join(parts[2:])
             if username in logged_in_users:
-                logged_in_users[username]['results'].append(result_description)
+                logged_in_users[username]['results'].append((timestamp, result_description))
             else:
                 logged_in_users[username] = {
-                    'results': [result_description],
+                    'results': [(timestamp, result_description)],
                     'username': username
                 }
     return logged_in_users
@@ -122,32 +125,30 @@ def results():
     username = session['username']
 
     logged_in_users = read_logged_in_users()
-    user_results = [res for res in logged_in_users.get(username, {}).get('results', [])]
+    user_results = [(res[1], res[0]) for res in logged_in_users.get(username, {}).get('results', [])]
 
-    different_results = [res[0] for res in user_results if res[0]!= result_description]
+    different_results = [res[0] for res in user_results if res[0] != result_description['description']]
 
     similar_result_count = 0
+    similar_result_users = {}
     with open('user_results.txt', 'r') as f:
         for line in f:
             parts = line.strip().split(', ')
-            user_result = parts[1:]
-            if result_description['description'] in user_result:
+            timestamp = parts[0]
+            user = parts[1]
+            user_result_description = parts[2]
+            if user_result_description == result_description['description']:
                 similar_result_count += 1
-                
+                if user not in similar_result_users or timestamp > similar_result_users[user][0]:
+                    similar_result_users[user] = (timestamp, user_result_description)
+
     total_users = sum(1 for line in open('user_results.txt'))
     if total_users == 0:
         pick_rate = 0
     else:
         pick_rate = (similar_result_count / total_users) * 100
 
-    similar_result_users = []
-    with open('user_results.txt', 'r') as f:
-        for line in f:
-            parts = line.strip().split(', ')
-            user_result = parts[1:]
-            if result_description['description'] in user_result:
-                similar_result_users.append(parts[0])
-                print("Similar result count:", similar_result_count)
+    similar_result_users = list(similar_result_users.keys())
 
     return render_template('results.html', 
                         result_description=result_description, 
