@@ -1,11 +1,13 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #1a1a1a;
-    color: #fff;
+    background: black;
     text-align: center; /* Center the content */
   }
 
+  h2 {
+    color: white;
+  }
  .container {
     max-width: 800px;
     margin: 0 auto; /* Center the container */
@@ -28,14 +30,16 @@ body {
 
  .answer-label {
     display: inline-block;
-    width: 200px;
+    width: 100px;
     height: 200px;
-    margin: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: black;
+    /*border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+    padding: 50px;
     text-align: center;
     cursor: pointer;
     position: relative;
@@ -51,7 +55,7 @@ body {
   }
 
  .answer-text {
-    background-color: #1a1a1a;
+    background-color: white;
     display: block;
     margin-top: 10px;
     font-size: 18px;
@@ -60,3 +64,9 @@ body {
  .selected {
     border: 2px solid #fff;
   }
+
+button {
+  margin-bottom: 30%;
+  margin-top: 5%;
+  height: 100%;
+}
